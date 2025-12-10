@@ -100,5 +100,20 @@
       "link": "#",
       "github": "#"
     }
+  ],
+  "blog": [
+    {
+      "id": 1,
+      "title": "Selamat Datang di Blog Saya",
+      "slug": "selamat-datang",
+      "date": "2024-05-20",
+      "content": "Ini adalah postingan blog pertama saya. Sistem blog ini terintegrasi langsung dengan Admin Dashboard.",
+      "excerpt": "Postingan pertama untuk menyambut pengunjung blog baru.",
+      "imageUrl": "",
+      "tags": [
+        "General",
+        "Welcome"
+      ]
+    }
   ]
 }

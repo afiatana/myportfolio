@@ -64,7 +64,7 @@ export default function Dashboard() {
 
             <div style={{ display: 'flex', gap: '2rem' }}>
                 <nav style={{ width: '200px' }}>
-                    {['hero', 'about', 'skills', 'projects'].map(tab => (
+                    {['hero', 'about', 'skills', 'projects', 'blog'].map(tab => (
                         <button
                             key={tab}
                             onClick={() => setActiveTab(tab)}
@@ -582,7 +582,153 @@ export default function Dashboard() {
                         </div>
                     )}
 
-                    {/* Add other sections as needed */}
+                    {activeTab === 'blog' && (
+                        <div>
+                            <h2 style={{ marginBottom: '1.5rem', borderBottom: '1px dashed #008F11' }}>BLOG MANAGEMENT</h2>
+
+                            <div style={{ display: 'grid', gap: '2rem' }}>
+                                {(data.blog || []).map((post: any, index: number) => (
+                                    <div key={index} style={{ border: '1px solid #008F11', padding: '1.5rem', background: '#000' }}>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
+                                            <h3 style={{ color: '#00FF41' }}>Post #{index + 1}</h3>
+                                            <button
+                                                onClick={() => {
+                                                    const newBlog = data.blog.filter((_: any, i: number) => i !== index);
+                                                    setData((prev: any) => ({ ...prev, blog: newBlog }));
+                                                }}
+                                                style={{ background: 'red', color: 'white', border: 'none', padding: '0.2rem 0.5rem', cursor: 'pointer' }}
+                                            >
+                                                DELETE
+                                            </button>
+                                        </div>
+
+                                        <label style={labelStyle}>Title</label>
+                                        <input
+                                            style={inputStyle}
+                                            value={post.title}
+                                            onChange={(e) => {
+                                                const newBlog = [...data.blog];
+                                                // Auto generate slug from title if slug is empty or matches old title slug
+                                                const newSlug = e.target.value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+
+                                                newBlog[index] = {
+                                                    ...newBlog[index],
+                                                    title: e.target.value,
+                                                    slug: newBlog[index].slug ? newBlog[index].slug : newSlug
+                                                };
+                                                setData((prev: any) => ({ ...prev, blog: newBlog }));
+                                            }}
+                                        />
+
+                                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                                            <div>
+                                                <label style={labelStyle}>Slug (URL Friendly)</label>
+                                                <input
+                                                    style={inputStyle}
+                                                    value={post.slug}
+                                                    onChange={(e) => {
+                                                        const newBlog = [...data.blog];
+                                                        newBlog[index] = { ...newBlog[index], slug: e.target.value };
+                                                        setData((prev: any) => ({ ...prev, blog: newBlog }));
+                                                    }}
+                                                />
+                                            </div>
+                                            <div>
+                                                <label style={labelStyle}>Date</label>
+                                                <input
+                                                    type="date"
+                                                    style={inputStyle}
+                                                    value={post.date}
+                                                    onChange={(e) => {
+                                                        const newBlog = [...data.blog];
+                                                        newBlog[index] = { ...newBlog[index], date: e.target.value };
+                                                        setData((prev: any) => ({ ...prev, blog: newBlog }));
+                                                    }}
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <label style={labelStyle}>Excerpt (Short Summary)</label>
+                                        <textarea
+                                            style={{ ...inputStyle, minHeight: '80px' }}
+                                            value={post.excerpt}
+                                            onChange={(e) => {
+                                                const newBlog = [...data.blog];
+                                                newBlog[index] = { ...newBlog[index], excerpt: e.target.value };
+                                                setData((prev: any) => ({ ...prev, blog: newBlog }));
+                                            }}
+                                        />
+
+                                        <label style={labelStyle}>Content (Supports standard text)</label>
+                                        <textarea
+                                            style={{ ...inputStyle, minHeight: '300px', fontFamily: 'monospace' }}
+                                            value={post.content}
+                                            onChange={(e) => {
+                                                const newBlog = [...data.blog];
+                                                newBlog[index] = { ...newBlog[index], content: e.target.value };
+                                                setData((prev: any) => ({ ...prev, blog: newBlog }));
+                                            }}
+                                        />
+
+                                        <label style={labelStyle}>Tags (comma separated)</label>
+                                        <input
+                                            style={inputStyle}
+                                            value={post.tags ? post.tags.join(', ') : ''}
+                                            onChange={(e) => {
+                                                const newBlog = [...data.blog];
+                                                newBlog[index] = { ...newBlog[index], tags: e.target.value.split(',').map((t: string) => t.trim()) };
+                                                setData((prev: any) => ({ ...prev, blog: newBlog }));
+                                            }}
+                                        />
+
+                                        <label style={labelStyle}>Main Image</label>
+                                        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                                            {post.imageUrl && <img src={post.imageUrl} style={{ width: '100px', height: '60px', objectFit: 'cover', border: '1px solid #008F11' }} />}
+                                            <input
+                                                type="file"
+                                                accept="image/*"
+                                                style={{ color: '#00FF41' }}
+                                                onChange={async (e) => {
+                                                    if (e.target.files && e.target.files[0]) {
+                                                        const formData = new FormData();
+                                                        formData.append('file', e.target.files[0]);
+                                                        try {
+                                                            const res = await fetch('/api/admin/upload', { method: 'POST', body: formData });
+                                                            const result = await res.json();
+                                                            if (result.url) {
+                                                                const newBlog = [...data.blog];
+                                                                newBlog[index] = { ...newBlog[index], imageUrl: result.url };
+                                                                setData((prev: any) => ({ ...prev, blog: newBlog }));
+                                                            }
+                                                        } catch { alert('Upload Failed'); }
+                                                    }
+                                                }}
+                                            />
+                                        </div>
+                                    </div>
+                                ))}
+
+                                <button
+                                    onClick={() => {
+                                        const newPost = {
+                                            id: Date.now(),
+                                            title: 'New Blog Post',
+                                            slug: 'new-blog-post-' + Date.now(),
+                                            date: new Date().toISOString().split('T')[0],
+                                            content: 'Write your content here...',
+                                            excerpt: 'Short summary...',
+                                            tags: ['General'],
+                                            imageUrl: ''
+                                        };
+                                        setData((prev: any) => ({ ...prev, blog: [...(prev.blog || []), newPost] }));
+                                    }}
+                                    style={{ padding: '1rem', border: '1px dashed #008F11', background: 'transparent', color: '#00FF41', cursor: 'pointer', textTransform: 'uppercase' }}
+                                >
+                                    + Add New Post
+                                </button>
+                            </div>
+                        </div>
+                    )}
                 </main>
             </div>
         </div>

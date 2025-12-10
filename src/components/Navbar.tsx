@@ -22,7 +22,7 @@ export default function Navbar() {
                     <Link href="#experience" className={styles.navLink}>Experience</Link>
                 </li>
                 <li className={styles.navItem}>
-                    <Link href="#blog" className={styles.navLink}>Blog</Link>
+                    <Link href="/blog" className={styles.navLink} target="_blank" rel="noopener noreferrer">Blog</Link>
                 </li>
             </ul>
 
