@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "deploy": "powershell -ExecutionPolicy Bypass -File ./auto-deploy.ps1",
+    "deploy:msg": "powershell -ExecutionPolicy Bypass -File ./auto-deploy.ps1 -message"
   },
   "dependencies": {
     "next": "16.0.8",
