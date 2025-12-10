@@ -83,7 +83,8 @@ export default function ClientHome({ data }: { data: any }) {
                                     objectFit: 'contain',
                                     position: 'absolute',
                                     zIndex: 10,
-                                    filter: 'drop-shadow(0 0 10px rgba(0,0,0,0.5))'
+                                    filter: 'drop-shadow(0 0 10px rgba(0,0,0,0.5))',
+                                    marginTop: '50px' // Fix: Lower the image to prevent cutoff by navbar
                                 }}
                             />
                         )}
