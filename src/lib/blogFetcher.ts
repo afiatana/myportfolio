@@ -45,7 +45,8 @@ async function fetchWordPressPosts(): Promise<BlogPost[]> {
             url += `&author=${EXTERNAL_CONFIG.wordpress.authorId}`;
         }
 
-        const res = await fetch(url, { next: { revalidate: 3600 } }); // Cache for 1 hour
+        console.log('Fetching WP Posts from:', url);
+        const res = await fetch(url, { next: { revalidate: 0 } }); // Disable cache for debugging
         if (!res.ok) throw new Error('Failed to fetch WP');
 
         const posts = await res.json();
