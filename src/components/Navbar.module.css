@@ -91,45 +91,82 @@
     box-shadow: 0 0 20px var(--matrix-green);
 }
 
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 2rem;
+    height: 0.25rem;
+    background: var(--matrix-green);
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+}
+
+/* Mobile Responsive */
 @media (max-width: 768px) {
-    .navbar {
-        padding: 1rem;
-    }
-
-    .logo {
-        font-size: 1.2rem;
-    }
-
-    .navLinks {
-        gap: 1rem;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.95);
-        padding: 1rem;
-        display: none;
-        border-bottom: 1px solid var(--matrix-dim);
-    }
-
-    .navLinks.active {
+    .hamburger {
         display: flex;
     }
 
-    .ctaButton {
-        padding: 0.4rem 1rem;
-        font-size: 0.9rem;
+    .navLinks {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 100%;
+        max-width: 300px;
+        background: rgba(0, 0, 0, 0.95);
+        border-left: 1px solid var(--matrix-dim);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        gap: 2rem;
+        box-shadow: -5px 0 15px rgba(0, 255, 65, 0.1);
     }
-}
 
-@media (max-width: 480px) {
-    .logo {
-        font-size: 1rem;
+    .navLinks.active {
+        transform: translateX(0);
     }
 
+    .navItem {
+        opacity: 0;
+        transition: opacity 0.5s ease 0.2s;
+    }
+
+    .navLinks.active .navItem {
+        opacity: 1;
+    }
+
+    /* Animation for Hamburger Open State */
+    .hamburger.active span:first-child {
+        transform: rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg);
+    }
+    
     .ctaButton {
-        padding: 0.3rem 0.8rem;
-        font-size: 0.8rem;
+        display: none; /* Hide CTA button on mobile header, maybe move to menu bottom if needed */
     }
 }
