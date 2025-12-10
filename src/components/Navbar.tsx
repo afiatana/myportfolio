@@ -43,8 +43,8 @@ export default function Navbar() {
                     <Link href="/blog" className={styles.navLink} target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Blog</Link>
                 </li>
                 {/* Mobile only CTA inside menu */}
-                <li className={`${styles.navItem} ${styles.mobileCta}`} style={{ marginTop: '1rem', display: 'block' }}>
-                    <Link href="#contact" className={styles.ctaButton} style={{ display: 'inline-block' }} onClick={closeMenu}>
+                <li className={`${styles.navItem} ${styles.mobileCta}`} style={{ marginTop: '1rem' }}>
+                    <Link href="#contact" className={styles.ctaButton} onClick={closeMenu}>
                         Let's Talk
                     </Link>
                 </li>
