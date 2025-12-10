@@ -1,0 +1,104 @@
+{
+  "hero": {
+    "greeting": "Hello, I'm",
+    "headline": "Aaf Afiatna",
+    "role": "Developer",
+    "subtext": "I build interactive, modern web experiences that combine meaningful design with powerful performance.",
+    "imageUrl": "/uploads/1765298287225_Aaf_Afiatna_Binary.png",
+    "profileImageSize": 450,
+    "socialMedia": {
+      "facebook": "https://www.facebook.com/aafafiatna",
+      "instagram": "https://www.instagram.com/aafafiatna/",
+      "whatsapp": "https://wa.me/6288290015046",
+      "linkedin": "https://www.linkedin.com/in/aaf-afiatna/"
+    }
+  },
+  "about": {
+    "bio": [
+      "Hi! I'm a professional Web Developer based in Indonesia. I specialize in building high-quality websites and applications using modern technologies like Next.js and WordPress.",
+      "With a strong background in SEO, I don't just build websites that look good—I ensure they perform well in search engines and deliver results. My goal is to bridge the gap between stunning design and technical performance.",
+      "When I'm not coding, you can find me exploring new web trends or optimizing content strategies."
+    ],
+    "stats": [
+      {
+        "number": "3+",
+        "label": "Years Experience"
+      },
+      {
+        "number": "50+",
+        "label": "Projects Completed"
+      },
+      {
+        "number": "100%",
+        "label": "Client Satisfaction"
+      }
+    ]
+  },
+  "skills": {
+    "Frontend": [
+      "HTML5",
+      "JavaScript",
+      {
+        "name": "css3",
+        "iconUrl": ""
+      }
+    ],
+    "Backend": [
+      "WordPress"
+    ],
+    "Tools": [
+      {
+        "name": "Git",
+        "iconUrl": ""
+      },
+      "VS Code",
+      {
+        "name": "Github",
+        "iconUrl": ""
+      },
+      "Google Analytics",
+      {
+        "name": "Google",
+        "iconUrl": ""
+      }
+    ]
+  },
+  "projects": [
+    {
+      "id": 1,
+      "title": "E-Commerce Dashboard",
+      "description": "A comprehensive dashboard for managing online stores, featuring real-time analytics and inventory management.",
+      "tags": [
+        "Next.js",
+        "TypeScript",
+        "Tailwind"
+      ],
+      "link": "#",
+      "github": "#"
+    },
+    {
+      "id": 2,
+      "title": "Portfolio Website",
+      "description": "A modern, high-performance portfolio website built with Next.js 15 and server components.",
+      "tags": [
+        "React",
+        "CSS Modules",
+        "Motion"
+      ],
+      "link": "#",
+      "github": "#"
+    },
+    {
+      "id": 3,
+      "title": "Task Management App",
+      "description": "Collaborative task manager helping teams organize and prioritize work effectively.",
+      "tags": [
+        "React",
+        "Node.js",
+        "MongoDB"
+      ],
+      "link": "#",
+      "github": "#"
+    }
+  ]
+}

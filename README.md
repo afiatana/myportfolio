@@ -1,36 +1,173 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Modern Portfolio Website
 
-## Getting Started
+Portfolio website interaktif dengan tema Matrix, dibangun menggunakan Next.js 15 dan TypeScript.
 
-First, run the development server:
+## ✨ Fitur
 
+- 🎨 **Design Modern** dengan tema Matrix (hijau neon)
+- ⚡ **Next.js 15** dengan Turbopack ultra-fast
+- 🎯 **Admin Dashboard** untuk mengelola konten
+- 📧 **Contact Form** terintegrasi dengan email
+- 🎭 **Smooth Animations** & parallax effects
+- 📱 **Fully Responsive** di semua perangkat
+- 🔒 **Secure Authentication** untuk admin
+- 🎨 **Auto-generated Icons** untuk skills/teknologi
+
+## 🛠️ Tech Stack
+
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript
+- **Styling:** CSS Modules
+- **Email:** Nodemailer
+- **Icons:** Simple Icons CDN + DevIcon
+- **Deployment:** Vercel / Netlify
+
+## 🚀 Quick Start
+
+### 1. Clone Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <your-repo-url>
+cd portfolio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install Dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Setup Environment Variables
+Copy `.env.example` ke `.env.local`:
+```bash
+cp .env.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Edit `.env.local` dengan kredensial Anda:
+```env
+# Email Configuration
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-gmail-app-password
 
-## Learn More
+# Admin Credentials
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=your-secure-password
 
-To learn more about Next.js, take a look at the following resources:
+# Secret Key
+NEXT_PUBLIC_ADMIN_SECRET=random-secret-key
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. Run Development Server
+```bash
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Buka [http://localhost:3000](http://localhost:3000) di browser.
 
-## Deploy on Vercel
+## 🔐 Admin Access
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Login URL:** `/admin/login`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Gunakan username dan password yang Anda set di`.env.local`
+
+**Dashboard URL:** `/admin/dashboard`
+
+### Fitur Admin Dashboard:
+- ✏️ Edit Hero section
+- 📝 Update About & Bio
+- 💼 Manage Projects
+- 🛠️ Add/Remove Skills dengan auto-generated icons
+- 🔗 Update Social Media links
+
+## 📧 Setup Email (Gmail)
+
+1. Buka [Google Account Security](https://myaccount.google.com/security)
+2. Enable **2-Step Verification**
+3. Generate **App Password**:
+   - Pilih "Mail" & "Other device"
+   - Copy password yang di-generate
+4. Paste ke `EMAIL_PASS` di `.env.local`
+
+## 🌐 Deployment
+
+Lihat **[DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)** untuk panduan lengkap deployment yang aman.
+
+### Quick Deploy ke Vercel:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+
+**PENTING:** Jangan lupa set Environment Variables di Vercel dashboard!
+
+## 📁 Struktur Project
+
+```
+portfolio/
+├── src/
+│   ├── app/
+│   │   ├── admin/          # Admin dashboard & login
+│   │   ├── api/            # API routes
+│   │   └── page.tsx        # Homepage
+│   ├── components/         # React components
+│   ├── data/
+│   │   └── content.json    # Portfolio content
+│   └── lib/                # Utilities
+├── public/
+│   └── uploads/            # Uploaded files
+├── .env.local              # Environment variables (PRIVATE)
+├── .env.example            # Template environment variables
+└── DEPLOYMENT_GUIDE.md     # Panduan deployment
+```
+
+## 🔒 Security
+
+- ✅ `.env.local` **TIDAK** di-commit ke GitHub
+- ✅ Passwords di-hash dan stored securely
+- ✅ HTTP-only cookies untuk authentication
+- ✅ Environment variables untuk kredensial
+- ✅ CORS protection
+- ✅ Input validation
+
+## 📝 Content Management
+
+Edit konten portfolio Anda melalui:
+1. **Admin Dashboard** (`/admin/dashboard`) - Recommended
+2. **Direct edit** `src/data/content.json` - Manual
+
+## 🎨 Customization
+
+### Mengubah Warna Tema:
+Edit CSS variables di components (contoh: `#00FF41` untuk Matrix green)
+
+### Menambah Skill Baru:
+1. Login ke dashboard
+2. Tab "Skills"
+3. Pilih kategori (Frontend/Backend/Tools)
+4. Klik "+ ADD SKILL"
+5. Ketik nama teknologi → Icon auto-generated!
+
+## 🆘 Troubleshooting
+
+**Q: Contact form tidak mengirim email?**
+- Cek `EMAIL_USER` dan `EMAIL_PASS` sudah benar
+- Pastikan App Password (bukan password Gmail biasa)
+
+**Q: Tidak bisa login admin?**
+- Periksa `ADMIN_USERNAME` dan `ADMIN_PASSWORD` di `.env.local`
+- Clear cookies browser
+
+**Q: Icon skill tidak muncul?**
+- Icon auto-generated dari nama skill
+- Pastikan nama teknologi umum (React, PHP, MySQL, dll)
+
+## 📄 License
+
+MIT License - Bebas digunakan untuk portfolio pribadi
+
+## 👨‍💻 Author
+
+**Aaf Afiatna**
+- Portfolio: [your-portfolio-url]
+- LinkedIn: [your-linkedin]
+- GitHub: [your-github]
+
+---
+
+**Happy Coding! 🚀**

@@ -1,27 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Matrix Theme Palette */
+  --matrix-black: #000000;
+  --matrix-dark: #0D0D0D;
+  --matrix-green: #00FF41;
+  --matrix-dim: #008F11;
+  --matrix-pale: #a4ffa4;
+
+  /* Semantic Mapping */
+  --background: var(--matrix-black);
+  --foreground: var(--matrix-green);
+  --surface: #050505;
+  --surface-highlight: #111111;
+  --accent: var(--matrix-green);
+  --accent-glow: rgba(0, 255, 65, 0.2);
+  --border: var(--matrix-dim);
+
+  /* Typography */
+  --font-matrix: 'Share Tech Mono', monospace;
+  --font-sans: var(--font-matrix);
+  /* Override default sans */
+  --font-mono: var(--font-matrix);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--matrix-black);
+    --foreground: var(--matrix-green);
   }
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-matrix);
+  -webkit-font-smoothing: none;
+  /* Crisper terminal look */
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* CRT Scanline Effect Overlay */
+body::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%,
+      rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06));
+  z-index: 9998;
+  /* Below loader but above content */
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
 }
 
 * {
@@ -33,10 +75,33 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  transition: text-shadow 0.2s ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+a:hover {
+  text-shadow: 0 0 8px var(--matrix-green);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--matrix-black);
+  border-left: 1px solid var(--matrix-dim);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--matrix-dim);
+  border: 1px solid var(--matrix-black);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--matrix-green);
+}
+
+::selection {
+  background: var(--matrix-green);
+  color: var(--matrix-black);
 }
