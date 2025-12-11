@@ -46,7 +46,12 @@ async function fetchWordPressPosts(): Promise<BlogPost[]> {
         }
 
         console.log('Fetching WP Posts from:', url);
-        const res = await fetch(url, { next: { revalidate: 0 } }); // Disable cache for debugging
+        const res = await fetch(url, {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (compatible; PortfolioBot/1.0; +https://myportfolio.com)'
+            },
+            next: { revalidate: 0 }
+        }); // Disable cache for debugging
         if (!res.ok) throw new Error('Failed to fetch WP');
 
         const posts = await res.json();

@@ -11,7 +11,8 @@
       "instagram": "https://www.instagram.com/aafafiatna/",
       "whatsapp": "https://wa.me/6288290015046",
       "linkedin": "https://www.linkedin.com/in/aaf-afiatna/"
-    }
+    },
+    "cvUrl": ""
   },
   "about": {
     "bio": [
@@ -56,11 +57,7 @@
         "name": "Github",
         "iconUrl": ""
       },
-      "Google Analytics",
-      {
-        "name": "Google",
-        "iconUrl": ""
-      }
+      "Google Analytics"
     ]
   },
   "projects": [

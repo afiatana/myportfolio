@@ -222,6 +222,16 @@ export default function Dashboard() {
                                 }))}
                                 placeholder="https://linkedin.com/in/your-profile"
                             />
+
+                            <h3 style={{ marginTop: '2rem', marginBottom: '1rem', color: '#a4ffa4', borderBottom: '1px dashed #008F11', paddingBottom: '0.5rem' }}>Downloads</h3>
+
+                            <label style={labelStyle}>CV Download Link</label>
+                            <input
+                                style={inputStyle}
+                                value={data.hero.cvUrl || ''}
+                                onChange={e => handleChange('hero', 'cvUrl', e.target.value)}
+                                placeholder="https://example.com/cv.pdf or /uploads/my-cv.pdf"
+                            />
                         </div>
                     )}
 

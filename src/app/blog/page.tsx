@@ -1,7 +1,7 @@
 import { getAllBlogPosts } from '@/lib/blogFetcher';
 import Link from 'next/link';
 
-export const revalidate = 3600; // Update setiap 1 jam
+export const revalidate = 60; // Update setiap 1 menit
 
 export default async function BlogIndex() {
     const posts = await getAllBlogPosts();
