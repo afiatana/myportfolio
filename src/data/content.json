@@ -1,9 +1,9 @@
 {
   "hero": {
-    "greeting": "Hello, I'm",
+    "greeting": "Halo, Saya",
     "headline": "Aaf Afiatna",
-    "role": "Developer",
-    "subtext": "I build interactive, modern web experiences that combine meaningful design with powerful performance.",
+    "role": "Pengembang Web",
+    "subtext": "Saya membangun pengalaman web yang interaktif dan modern, menggabungkan desain bermakna dengan performa tangguh.",
     "imageUrl": "/uploads/1765298287225_Aaf_Afiatna_Binary.png",
     "profileImageSize": 450,
     "socialMedia": {
@@ -16,22 +16,22 @@
   },
   "about": {
     "bio": [
-      "Hi! I'm a professional Web Developer based in Indonesia. I specialize in building high-quality websites and applications using modern technologies like Next.js and WordPress.",
-      "With a strong background in SEO, I don't just build websites that look good—I ensure they perform well in search engines and deliver results. My goal is to bridge the gap between stunning design and technical performance.",
-      "When I'm not coding, you can find me exploring new web trends or optimizing content strategies."
+      "Hai! Saya seorang Pengembang Web profesional yang berbasis di Indonesia. Saya mengkhususkan diri dalam membangun situs web dan aplikasi berkualitas tinggi menggunakan teknologi modern seperti Next.js dan WordPress.",
+      "Dengan latar belakang SEO yang kuat, saya tidak hanya membuat situs web yang terlihat bagus—saya memastikan situs tersebut berkinerja baik di mesin pencari dan memberikan hasil. Tujuan saya adalah menjembatani kesenjangan antara desain yang menawan dan performa teknis.",
+      "Saat tidak sedang coding, Anda bisa menemukan saya mengeksplorasi tren web baru atau mengoptimalkan strategi konten."
     ],
     "stats": [
       {
         "number": "3+",
-        "label": "Years Experience"
+        "label": "Tahun Pengalaman"
       },
       {
         "number": "50+",
-        "label": "Projects Completed"
+        "label": "Proyek Selesai"
       },
       {
         "number": "100%",
-        "label": "Client Satisfaction"
+        "label": "Kepuasan Klien"
       }
     ]
   },
@@ -63,8 +63,8 @@
   "projects": [
     {
       "id": 1,
-      "title": "E-Commerce Dashboard",
-      "description": "A comprehensive dashboard for managing online stores, featuring real-time analytics and inventory management.",
+      "title": "Dashboard E-Commerce",
+      "description": "Dashboard komprehensif untuk mengelola toko online, menampilkan analitik real-time dan manajemen inventaris.",
       "tags": [
         "Next.js",
         "TypeScript",
@@ -75,8 +75,8 @@
     },
     {
       "id": 2,
-      "title": "Portfolio Website",
-      "description": "A modern, high-performance portfolio website built with Next.js 15 and server components.",
+      "title": "Website Portofolio",
+      "description": "Website portofolio modern dengan performa tinggi yang dibangun dengan Next.js 15 dan server components.",
       "tags": [
         "React",
         "CSS Modules",
@@ -87,8 +87,8 @@
     },
     {
       "id": 3,
-      "title": "Task Management App",
-      "description": "Collaborative task manager helping teams organize and prioritize work effectively.",
+      "title": "Aplikasi Manajemen Tugas",
+      "description": "Manajer tugas kolaboratif yang membantu tim mengatur dan memprioritaskan pekerjaan secara efektif.",
       "tags": [
         "React",
         "Node.js",
@@ -108,8 +108,8 @@
       "excerpt": "Postingan pertama untuk menyambut pengunjung blog baru.",
       "imageUrl": "",
       "tags": [
-        "General",
-        "Welcome"
+        "Umum",
+        "Selamat Datang"
       ]
     }
   ]

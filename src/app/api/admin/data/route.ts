@@ -13,7 +13,7 @@ export async function GET() {
     if (!(await isAuthenticated())) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
-    const data = getPortfolioData();
+    const data = await getPortfolioData();
     return NextResponse.json(data);
 }
 
@@ -24,7 +24,7 @@ export async function POST(req: Request) {
 
     try {
         const newData = await req.json();
-        savePortfolioData(newData);
+        await savePortfolioData(newData);
         revalidatePath('/'); // Clear cache for home page
         return NextResponse.json({ success: true });
     } catch (error) {

@@ -1,8 +1,8 @@
 import { getPortfolioData } from "@/lib/portfolioData";
 import ClientHome from "@/components/ClientHome";
 
-export default function Home() {
-  const data = getPortfolioData();
+export default async function Home() {
+  const data = await getPortfolioData();
 
   return <ClientHome data={data} />;
 }

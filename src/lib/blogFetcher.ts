@@ -105,7 +105,7 @@ async function fetchBlogspotPosts(): Promise<BlogPost[]> {
 }
 
 export async function getAllBlogPosts(): Promise<BlogPost[]> {
-    const localData = getPortfolioData();
+    const localData = await getPortfolioData();
     const localPosts = (localData.blog || []).map((p: any) => ({
         ...p,
         source: 'local',

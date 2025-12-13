@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
 export async function generateStaticParams() {
-    const data = getPortfolioData();
+    const data = await getPortfolioData();
     return (data.blog || []).map((post: any) => ({
         slug: post.slug,
     }));
@@ -16,7 +16,7 @@ export default async function BlogPost(
     }
 ) {
     const params = await props.params;
-    const data = getPortfolioData();
+    const data = await getPortfolioData();
     const post = data.blog?.find((p: any) => p.slug === params.slug);
 
     if (!post) {
