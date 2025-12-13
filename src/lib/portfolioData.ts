@@ -62,12 +62,18 @@ export async function getPortfolioData() {
 }
 
 export async function savePortfolioData(data: any) {
-    // 1. Save locally (always good for local dev or build cache)
-    // Create dir if not exists
-    const dir = path.dirname(dataPath);
-    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-
-    fs.writeFileSync(dataPath, JSON.stringify(data, null, 2), 'utf8');
+    // 1. Save locally (ONLY in Development or if writable). 
+    // In Vercel Production, the filesystem is Read-Only, so this triggers an error 
+    // which stops the execution before it can Sync to GitHub.
+    if (process.env.NODE_ENV !== 'production') {
+        try {
+            const dir = path.dirname(dataPath);
+            if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+            fs.writeFileSync(dataPath, JSON.stringify(data, null, 2), 'utf8');
+        } catch (err) {
+            console.warn('Could not save to local filesystem (expected in production):', err);
+        }
+    }
 
     // 2. If in Production OR if Token is present, sync to GitHub
     if (process.env.NODE_ENV === 'production' || GITHUB_TOKEN) {
