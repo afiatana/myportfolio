@@ -67,24 +67,23 @@
   "projects": [
     {
       "id": 1,
-      "title": "Dashboard E-Commerce",
+      "title": "Website Berita",
       "description": "Dashboard komprehensif untuk mengelola toko online, menampilkan analitik real-time dan manajemen inventaris.",
       "tags": [
-        "Next.js",
-        "TypeScript",
-        "Tailwind"
+        "Wordpress",
+        "Hosting Web",
+        ""
       ],
-      "link": "#",
-      "github": "#"
+      "link": "https://mahidara.co",
+      "github": ""
     },
     {
       "id": 2,
-      "title": "Website Portofolio",
+      "title": "SEO Artikel",
       "description": "Website portofolio modern dengan performa tinggi yang dibangun dengan Next.js 15 dan server components.",
       "tags": [
-        "React",
-        "CSS Modules",
-        "Motion"
+        "Yoast/Rankmath",
+        "ChatGPT"
       ],
       "link": "#",
       "github": "#"
