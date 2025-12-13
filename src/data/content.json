@@ -92,15 +92,17 @@
     },
     {
       "id": 3,
-      "title": "Aplikasi Manajemen Tugas",
-      "description": "Manajer tugas kolaboratif yang membantu tim mengatur dan memprioritaskan pekerjaan secara efektif.",
+      "title": "Search Engine Sederhana \"Nexus Ignis\"",
+      "description": "Nexus Ignis adalah mesin pencari arsip digital yang didedikasikan untuk menyelamatkan dan mengindeks konten web yang telah hilang.",
       "tags": [
-        "React",
-        "Node.js",
-        "MongoDB"
+        "HTML",
+        "JavaScript",
+        "Python",
+        "Batchfile",
+        ""
       ],
-      "link": "#",
-      "github": "#"
+      "link": "https://nexus-ignis.up.railway.app/",
+      "github": "https://github.com/afiatana/nexus-ignis.git"
     }
   ],
   "blog": [
