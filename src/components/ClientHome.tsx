@@ -71,31 +71,6 @@ export default function ClientHome({ data }: { data: any }) {
                             </div>
                         )}
 
-                        {data.hero.cvUrl && (
-                            <div style={{ marginTop: '2rem' }}>
-                                <a
-                                    href={data.hero.cvUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={styles.secondaryBtn}
-                                    style={{
-                                        display: 'inline-flex',
-                                        alignItems: 'center',
-                                        gap: '0.8rem',
-                                        fontSize: '0.9rem',
-                                        padding: '0.8rem 1.5rem',
-                                        width: 'auto'
-                                    }}
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                        <polyline points="7 10 12 15 17 10"></polyline>
-                                        <line x1="12" y1="15" x2="12" y2="3"></line>
-                                    </svg>
-                                    DOWNLOAD CV
-                                </a>
-                            </div>
-                        )}
                     </div>
                     <div className={styles.heroVisual}>
                         <div className={styles.gradientOrb}></div>
@@ -110,9 +85,44 @@ export default function ClientHome({ data }: { data: any }) {
                                     position: 'absolute',
                                     zIndex: 10,
                                     filter: 'drop-shadow(0 0 10px rgba(0,0,0,0.5))',
-                                    marginTop: '50px' // Fix: Lower the image to prevent cutoff by navbar
+                                    marginTop: '50px'
                                 }}
                             />
+                        )}
+
+                        {data.hero.cvUrl && (
+                            <div style={{
+                                position: 'relative',
+                                zIndex: 11,
+                                marginTop: `calc(min(${data.hero.profileImageSize || 400}px, 80vw) + 60px)`,
+                                textAlign: 'center',
+                                width: '100%'
+                            }}>
+                                <a
+                                    href={data.hero.cvUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={styles.secondaryBtn}
+                                    style={{
+                                        display: 'inline-flex',
+                                        alignItems: 'center',
+                                        gap: '0.8rem',
+                                        fontSize: '0.9rem',
+                                        padding: '0.8rem 1.5rem',
+                                        width: 'auto',
+                                        background: 'rgba(255, 255, 255, 0.05)',
+                                        backdropFilter: 'blur(10px)',
+                                        border: '1px solid rgba(255, 255, 255, 0.1)'
+                                    }}
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                    DOWNLOAD CV
+                                </a>
+                            </div>
                         )}
                     </div>
                 </section>
