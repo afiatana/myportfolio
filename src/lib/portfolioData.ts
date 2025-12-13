@@ -10,35 +10,50 @@ const BRANCH = process.env.GITHUB_BRANCH || 'main'; // or 'master', check your r
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
 export async function getPortfolioData() {
-    // In production, fetch from GitHub Raw to ensure we get the latest "committed" data
-    // This solves the ephemeral file system issue on Vercel
+    // In production, fetch from GitHub API to avoid Raw CDN Caching
     if (process.env.NODE_ENV === 'production') {
         try {
-            // Use GitHub API (if token) or Raw URL
-            // Using API is better for private repos, but rate limited.
-            // Using Raw is good for public. 
-            // Let's use Raw with cache busting for speed + freshness
-            const url = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/src/data/content.json`;
-            const headers: HeadersInit = {};
+            const filePath = 'src/data/content.json';
+            // Use contents API with timestamp to bust any lingering cache
+            // Note: We use the API, not Raw, because API is atomic and usually fresher for small files
+            const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${filePath}?ref=${BRANCH}&t=${Date.now()}`;
+
+            const headers: HeadersInit = {
+                'Accept': 'application/vnd.github.v3+json',
+                'Cache-Control': 'no-cache'
+            };
             if (GITHUB_TOKEN) {
                 headers['Authorization'] = `token ${GITHUB_TOKEN}`;
             }
 
+            // revalidate: 0 is CRITICAL here
             const res = await fetch(url, {
                 headers,
-                next: { tags: ['portfolio-data'], revalidate: 0 } // No cache suitable for "dashboard updates"
+                next: { tags: ['portfolio-data'], revalidate: 0 },
+                cache: 'no-store'
             });
 
             if (res.ok) {
-                return await res.json();
+                const data = await res.json();
+                // API returns content in Base64
+                if (data.content && data.encoding === 'base64') {
+                    const decoded = Buffer.from(data.content, 'base64').toString('utf8');
+                    return JSON.parse(decoded);
+                }
             }
-            console.warn('Failed to fetch from GitHub, falling back to local file (might be stale)');
+            console.warn('Failed to fetch from GitHub API, falling back to Raw or Local');
+
+            // Fallback to Raw if API fails (e.g. rate limit)
+            const rawUrl = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/src/data/content.json?t=${Date.now()}`;
+            const rawRes = await fetch(rawUrl, { next: { revalidate: 0 } });
+            if (rawRes.ok) return await rawRes.json();
+
         } catch (error) {
             console.error('Error fetching from GitHub:', error);
         }
     }
 
-    // Local fallback (Dev environment or backup)
+    // Local fallback
     if (fs.existsSync(dataPath)) {
         const fileContents = fs.readFileSync(dataPath, 'utf8');
         return JSON.parse(fileContents);
