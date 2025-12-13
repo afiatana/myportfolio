@@ -76,7 +76,8 @@
         "GSC"
       ],
       "link": "https://mahidara.co",
-      "github": ""
+      "github": "",
+      "imageUrl": "https://raw.githubusercontent.com/afiatana/myportfolio/main/public/uploads/1765628138008_Screenshot_2025-12-13_172915.png"
     },
     {
       "id": 2,
@@ -88,7 +89,8 @@
         ""
       ],
       "link": "https://mahidara.co/chipset-2nm-pertama-samsung-jadi-game-changer-dengan-teknologi-super-terbaru/",
-      "github": "#"
+      "github": "#",
+      "imageUrl": "https://raw.githubusercontent.com/afiatana/myportfolio/main/public/uploads/1765628150011_Screenshot_2025-12-13_173448.png"
     },
     {
       "id": 3,
@@ -102,7 +104,8 @@
         ""
       ],
       "link": "https://nexus-ignis.up.railway.app/",
-      "github": "https://github.com/afiatana/nexus-ignis.git"
+      "github": "https://github.com/afiatana/nexus-ignis.git",
+      "imageUrl": "https://raw.githubusercontent.com/afiatana/myportfolio/main/public/uploads/1765628160031_Screenshot_2025-12-13_173710.png"
     }
   ],
   "blog": [
