@@ -141,6 +141,63 @@
     }
 }
 
+/* Modal Styles */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+.modalContent {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.modalImage {
+    max-width: 100%;
+    max-height: 90vh;
+    border: 2px solid var(--matrix-green);
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
+    object-fit: contain;
+}
+
+.closeBtn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: var(--matrix-green);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.closeBtn:hover {
+    text-shadow: 0 0 10px var(--matrix-green);
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 @media (max-width: 480px) {
     .section {
         padding: 3rem 5%;

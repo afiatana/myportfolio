@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styles from './Projects.module.css';
 
 interface Project {
@@ -15,6 +16,8 @@ interface ProjectsProps {
 }
 
 export default function Projects({ data }: ProjectsProps) {
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
     return (
         <section id="projects" className={styles.section}>
             <div className={styles.container}>
@@ -31,7 +34,8 @@ export default function Projects({ data }: ProjectsProps) {
                                     <img
                                         src={project.imageUrl}
                                         alt={project.title}
-                                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                        style={{ width: '100%', height: '100%', objectFit: 'cover', cursor: 'pointer' }}
+                                        onClick={() => setSelectedImage(project.imageUrl!)}
                                     />
                                 ) : (
                                     <span className={styles.imagePlaceholder}>🖼️</span>
@@ -54,6 +58,18 @@ export default function Projects({ data }: ProjectsProps) {
                     ))}
                 </div>
             </div>
+
+            {/* Lightbox Modal */}
+            {selectedImage && (
+                <div className={styles.modalOverlay} onClick={() => setSelectedImage(null)}>
+                    <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+                        <button className={styles.closeBtn} onClick={() => setSelectedImage(null)}>
+                            ×
+                        </button>
+                        <img src={selectedImage} alt="Project Detail" className={styles.modalImage} />
+                    </div>
+                </div>
+            )}
         </section>
     );
 }
