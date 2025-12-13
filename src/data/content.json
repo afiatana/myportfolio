@@ -68,11 +68,12 @@
     {
       "id": 1,
       "title": "Website Berita",
-      "description": "Dashboard komprehensif untuk mengelola toko online, menampilkan analitik real-time dan manajemen inventaris.",
+      "description": "Proyek pembuatan website berita menggunakan teknologi WordPress dan web hosting, dengan fokus pada struktur konten yang terorganisir, performa website yang optimal, serta penerapan SEO teknis untuk mendukung kecepatan akses, stabilitas sistem, dan kemudahan pengelolaan konten.",
       "tags": [
         "Wordpress",
         "Hosting Web",
-        ""
+        "Google Analitycs",
+        "GSC"
       ],
       "link": "https://mahidara.co",
       "github": ""
