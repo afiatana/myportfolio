@@ -81,12 +81,13 @@
     {
       "id": 2,
       "title": "SEO Artikel",
-      "description": "Website portofolio modern dengan performa tinggi yang dibangun dengan Next.js 15 dan server components.",
+      "description": "Proyek penulisan artikel untuk website berita dengan fokus pada penyajian informasi yang akurat, terstruktur, dan relevan. Artikel ditulis sesuai kaidah jurnalistik dasar serta dioptimalkan dengan teknik SEO untuk meningkatkan keterbacaan dan visibilitas di mesin pencari.",
       "tags": [
         "Yoast/Rankmath",
-        "ChatGPT"
+        "ChatGPT",
+        ""
       ],
-      "link": "#",
+      "link": "https://mahidara.co/chipset-2nm-pertama-samsung-jadi-game-changer-dengan-teknologi-super-terbaru/",
       "github": "#"
     },
     {
