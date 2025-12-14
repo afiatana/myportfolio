@@ -42,14 +42,14 @@
       {
         "name": "css3",
         "iconUrl": ""
-      },
-      {
-        "name": "PHP",
-        "iconUrl": ""
       }
     ],
     "Backend": [
-      "WordPress"
+      "WordPress",
+      {
+        "name": "php",
+        "iconUrl": ""
+      }
     ],
     "Tools": [
       {
