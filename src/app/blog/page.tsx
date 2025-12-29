@@ -62,7 +62,7 @@ export default async function BlogIndex() {
                                         zIndex: 2,
                                         border: '1px solid #333'
                                     }}>
-                                        {post.source.toUpperCase()}
+                                        {post.tags && post.tags[0] ? post.tags[0] : post.source.toUpperCase()}
                                     </div>
 
                                     <div style={{ height: '220px', background: '#111', position: 'relative', overflow: 'hidden' }}>
