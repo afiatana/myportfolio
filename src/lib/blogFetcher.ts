@@ -64,7 +64,7 @@ async function fetchWordPressPosts(): Promise<BlogPost[]> {
             content: p.content.rendered,
             excerpt: stripHtml(p.excerpt.rendered).substring(0, 150) + '...',
             imageUrl: p._embedded?.['wp:featuredmedia']?.[0]?.source_url || '',
-            tags: ['WordPress'],
+            tags: ['Mahidara'],
             source: 'wordpress',
             link: p.link
         }));
@@ -93,7 +93,7 @@ async function fetchBlogspotPosts(): Promise<BlogPost[]> {
                 content: item.content || item.summary || '',
                 excerpt: item.contentSnippet?.substring(0, 150) + '...' || '',
                 imageUrl: imageUrl,
-                tags: ['Blogspot'],
+                tags: ['InfoTekno'],
                 source: 'blogspot',
                 link: item.link
             };
