@@ -12,7 +12,7 @@ const EXTERNAL_CONFIG = {
     },
     blogspot: {
         enabled: true,
-        rssUrl: 'https://technoevolusi.blogspot.com/feeds/posts/default?alt=rss' // Ganti dengan URL Feed Anda
+        rssUrl: 'https://infotekno.net/feed/' // WordPress Feed kedua
     }
 };
 
